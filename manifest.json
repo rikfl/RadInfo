@@ -1,0 +1,21 @@
+{
+  "name": "The Radio Information App",
+  "short_name": "Radinfo",
+  "description": "A app that shows song title and artist with coverart when available",
+  "start_url": "https://rikflink.nl/radinfo/",
+  "display": "standalone",
+  "background_color": "#222831",
+  "theme_color": "#222831",
+  "icons": [
+    {
+      "src": "images/icon-192x192.png", 
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}  

@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding-left: 1em;
+    font-size: 0.8em;
+}
+
+h1 {
+     width: 100%;
+    font-size: 1.2em;
+    min-height: 1em;
+    font-weight: normal;
+    margin: 0 1em;
+}
+h2 {
+    font-size: 1.4em;
+    min-height: 1.4em;
+    font-weight: normal;
+}
+h3 {
+    font-size: 1.2em;
+    min-height: 1.2em;
+    font-weight: normal;
+    color:rgba(255,255,255,0.6);
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    color: rgba(255,255,255,0.8);
+    font-family: -apple-system, "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+
+button svg {
+    fill: #fff;
+}
+
+
+    #splashScreen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+    }
+
+        .logo-container {
+            width: 50%;
+        }
+        .logo .fill-clip {
+            transform: translateY(100%);
+            transition: transform 1.6s ease-out;
+        }
+            .WebSocket-open .logo .fill-clip {
+                transform: translateY(0%);
+            }
+
+        .stations button {
+            display: inline-block;
+            margin-right: 10px;
+            margin-top: 15px;
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 15px;
+            border-color: rgba(0,0,0,0);    
+            background: rgb(57, 62, 70);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+       .loading .stations button {
+            color: rgba(255,255,255,0.2);
+            background: rgba(37, 39, 79, 0.5);
+            cursor: not-allowed;
+        }
+
+    #playingScreen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+    }
+        .background {
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            filter: blur(40px) brightness(0.5);
+        }
+            .background img {
+                margin-left: -50%;
+                width: 200%;
+                height: 100%;
+                animation: mymove 20s linear both;
+                animation-iteration-count: infinite;
+            }
+
+        .foreground {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+        }
+            .foreground::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 20%;
+                background: linear-gradient(180deg, rgba(34, 40, 49,1) 0%, rgba(34, 40, 49,0.0) 100%);
+            }
+
+    .settings {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120%;
+        background-color: rgba(34, 40, 49,0.8);
+    }
+
+
+    .back-button {
+        position: absolute;
+        top:2%;
+        left:2%;
+        width: 36px;
+        border: 0;
+        background-color: transparent;
+    }
+    .settings-button {
+        position: absolute;
+        top:2%;
+        right:2%;
+        width: 36px;
+        border: 0;
+        background-color: transparent;
+    }
+    .like-button {
+        display: block;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0,0,0,0.8);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        right: 1em;
+        top: 1em;
+    }
+
+    .like-button svg {
+        width: 24px;
+        height: 24px;
+        margin-top:5px;
+        fill: #fff;
+        transition: fill 0.3s;
+    }
+
+    .like-button:hover {
+        background-color: rgba(0,0,0,0.9);;
+    }
+
+    .like-button.liked svg {
+        fill: #ff2929;
+    }
+
+
+
+.album-art {
+    position: relative;
+    width: 75vw;
+    margin: 1em;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.album-art img {
+    vertical-align: bottom;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.info {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4em
+}
+.statusreport {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+    .statusreport span {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+    }
+    
+    .statusreport svg {
+        fill: #fff;
+    }
+
+        .statusreport span.success svg {
+            fill: #26ff2f;
+        }
+
+
+  @keyframes mymove {
+    0% {transform: rotate(0deg) scale(1.1);}
+    50% {transform: rotate(20deg) scale(1.4);}
+    100% {transform: rotate(0deg) scale(1.1);}
+  }
+
+
+.songHistory {
+    display: none;
+}
+        
+.connection-status {
+    display: inline-block;
+}
+.connection-status span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background:black;
+}
+.connection-status {display: none;}
+
+#status {
+    position: fixed;
+    top:10px;
+    right:10px;
+    text-align: right;
+    z-index: 1;
+}
+
+.modal-content {
+    color: #000;
+    background-color: white;
+    margin: 15% 10% 50% 10%;
+    padding: 5%;
+    border-radius: 10px;
+    width: 80%;
+    text-align: center;
+}
+
+.close-button {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: red;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.tab.disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+
+.tab.active {
+    border-bottom: 2px solid rgb(90,96,212);
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.setting {
+    margin: 10px 0;
+    text-align: left;
+}
+
+header,footer,
+.splash .playing,
+.splash .settings,
+.playing .splash,
+.playing .settings,
+.settings .splash,
+.settings .playing {display: none;}
+
+.splash .container {height: 100%;}
+.splash .selectStation {display: block;}
+
+/* Styles for devices in portrait orientation */
+@media screen and (orientation: portrait) {
+    /* Your portrait-specific styles */
+    body {
+        background-color: #222831;
+    }
+  }
+  
+  /* Styles for devices in landscape orientation */
+  @media screen and (orientation: landscape) {
+    body {
+        background-color: #343e4d;
+    }
+        .foreground {
+            flex-direction:row;
+        }
+        .info {
+            margin:0;
+        }
+  }
